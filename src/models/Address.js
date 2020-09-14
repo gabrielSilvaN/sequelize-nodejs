@@ -6,9 +6,15 @@ class Address extends Model {
          zipcode: DataTypes.STRING,
          street: DataTypes.STRING,
          number: DataTypes.INTEGER,
-         user_id: DataTypes.INTEGER,
       },{
          sequelize: connection
+      })
+   }
+
+   static associate(models) {
+      this.belongsTo(models.User, {
+         foreignKey: 'user_id',
+         as: 'owner'
       })
    }
 }

@@ -10,4 +10,7 @@ const connection = new Sequelize(dbConfig);
 User.init(connection);
 Address.init(connection);
 
+// cadastrando os models para fazer associações
+Address.associate(connection.models);
+
 module.exports = connection;
